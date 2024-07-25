@@ -4,11 +4,16 @@
     <h2>Todos os lanches</h2>
 </div>
 
+
+
 @foreach(var lanche in Model)
 {
-    <div>
-        <h4>@lanche.Name</h4>
-        <p><img src="@lanche.ImageUrl"/></p>
-        <h3>Preço : @lanche.Price.ToString("c")</h3>
+    <div class="card" style="width: 18rem;">
+        <img src="@lanche.ImageUrl" class="card-img-top" alt="...">
+        <div class="card-body">
+        <h5 class="card-title">@lanche.Name</h5>
+        <p class="card-text">@lanche.Price.ToString("c").</p>
+        <a href="#" class="btn btn-primary">Comprar</a>
+        </div>
     </div>
 }
