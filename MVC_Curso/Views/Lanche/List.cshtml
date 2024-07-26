@@ -1,19 +1,25 @@
-﻿@model IEnumerable<MVC_Curso.Models.Lanche>
+﻿@model LancheListViewModel
 
 <div>
     <h2>Todos os lanches</h2>
 </div>
 
 
-
-@foreach(var lanche in Model)
-{
-    <div class="card" style="width: 18rem;">
-        <img src="@lanche.ImageUrl" class="card-img-top" alt="...">
-        <div class="card-body">
-        <h5 class="card-title">@lanche.Name</h5>
-        <p class="card-text">@lanche.Price.ToString("c").</p>
-        <a href="#" class="btn btn-primary">Comprar</a>
-        </div>
+<div class="container">
+    <div class="row">
+        @foreach(var lanche in Model.Lanches)
+        {
+            <div class="col-sm-4 col-md-4 cold-lg-4">
+            <div class="card" style="width: 18rem;">
+                <img src="@lanche.ImageUrl" class="card-img-top" alt="...">
+                <div class="card-body">
+                <h5 class="card-title">@lanche.Name</h5>
+                <p class="card-text">@lanche.Price.ToString("c")</p>
+                <p class="card-text">@lanche.ShortDescription</p>
+                <a href="#" class="btn btn-primary">Comprar</a>
+                </div>
+            </div>
+            </div>
+        }
     </div>
-}
+</div>

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MVC_Curso.Repositories.Interfaces;
+using MVC_Curso.ViewModels;
 
 namespace MVC_Curso.Controllers
 {
@@ -14,7 +15,13 @@ namespace MVC_Curso.Controllers
 
         public IActionResult List()
         {
-            var lanches = _lancheRepository.Lanches;
+            //var lanches = _lancheRepository.Lanches;
+            //return View(lanches);
+
+            var lanches = new LancheListViewModel();
+            lanches.Lanches = _lancheRepository.Lanches;
+            lanches.CategoriaAtual = "Categoria";
+
             return View(lanches);
         }
     }
